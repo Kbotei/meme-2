@@ -24,6 +24,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>MemeMe needs access to the camera to make memes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>MemeMe needs access to your photo library to make memes</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
