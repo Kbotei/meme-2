@@ -13,16 +13,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var actionButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var topToolbar: UIToolbar!
-    @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var navbar: UINavigationBar!
+    @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let memeTextAttributes:[String: Any] = [
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.strokeWidth.rawValue: -4.0
+        ]
+        
+        topTextField.defaultTextAttributes = memeTextAttributes
         topTextField.text = "TOP"
+        topTextField.textAlignment = .center
+        topTextField.delegate = self
+        
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         bottomTextField.text = "BOTTOM"
+        bottomTextField.textAlignment = .center
+        bottomTextField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,17 +80,21 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     func generateMemedImage() -> UIImage {
-        topToolbar.isHidden = true
-        bottomToolbar.isHidden = true
+        toolbar.isHidden = true
+        navbar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
-        topToolbar.isHidden = false
-        bottomToolbar.isHidden = false
+        toolbar.isHidden = false
+        navbar.isHidden = false
         
         return memedImage
     }
+}
+
+extension ViewController: UITextFieldDelegate {
+    
 }
