@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
     
+    var memedImage: UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,13 +53,17 @@ class ViewController: UIViewController {
     }
 
     @IBAction func shareMeme(_ sender: Any) {
-        guard let originalImage = imageView.image else {
-            print("Imageview does not have an image")
-            return
+        memedImage = generateMemedImage()
+        
+        let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        shareSheet.completionWithItemsHandler = { (avtivityType, completed, returnedItems, activityError) in
+            self.save()
         }
         
-        let memedImage = generateMemedImage()
-        let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: originalImage, memedImage: memedImage)
+        // Prevent ipad crash - see chosen answer notes section
+        // https://stackoverflow.com/questions/35931946/basic-example-for-sharing-text-or-image-with-uiactivityviewcontroller-in-swift
+        shareSheet.popoverPresentationController?.sourceView = self.view
+        present(shareSheet, animated: true, completion: nil)
     }
     
     @IBAction func selectImage(_ sender: Any) {
@@ -73,7 +79,9 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cancel(_ sender: Any) {
-        
+        imageView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
     }
     
     func subscribeToKeyboardNotifications() {
@@ -99,6 +107,10 @@ class ViewController: UIViewController {
     func getKeyboardHeight(_ notification: Notification) -> CGFloat {
         let keyboardSize = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
         return keyboardSize.cgRectValue.height
+    }
+    
+    func save() {
+        let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
     }
 }
 
