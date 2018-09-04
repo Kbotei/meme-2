@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var actionButton: UIBarButtonItem!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var navbar: UINavigationBar!
@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         bottomTextField.text = "BOTTOM"
         bottomTextField.textAlignment = .center
         bottomTextField.delegate = self
+        
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -91,6 +93,7 @@ class ViewController: UIViewController {
         imageView.image = nil
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
+        shareButton.isEnabled = false
     }
     
     func subscribeToKeyboardNotifications() {
@@ -132,6 +135,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
+            shareButton.isEnabled = true
         }
         
         picker.dismiss(animated: true, completion: nil)
