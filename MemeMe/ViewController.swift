@@ -20,6 +20,12 @@ class ViewController: UIViewController {
     
     var memedImage: UIImage!
     
+    // Use light text to work with dark mode
+    // https://www.hackingwithswift.com/example-code/uikit/how-to-use-light-text-color-in-the-status-bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +71,7 @@ class ViewController: UIViewController {
         memedImage = generateMemedImage()
         
         let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        shareSheet.completionWithItemsHandler = { (_, completed, _, _) in
+        shareSheet.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
             if completed {
                 self.save()
             }
