@@ -53,6 +53,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func shareMeme(_ sender: Any) {
+        guard imageView.image != nil else {
+            let alert = UIAlertController(title: "Select an Image", message: "Please select an image before sharing.", preferredStyle: .alert)
+            alert.addAction(.init(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            return
+        }
+        
         memedImage = generateMemedImage()
         
         let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
@@ -113,6 +120,11 @@ class ViewController: UIViewController {
     
     func save() {
         let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
+        
+        // Save meme to photo library
+        // https://stackoverflow.com/questions/40854886/swift-take-a-photo-and-save-to-photo-library
+        
+        UIImageWriteToSavedPhotosAlbum(meme.memedImage, nil, nil, nil)
     }
 }
 

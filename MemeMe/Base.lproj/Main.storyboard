@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-k3-s2k">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLc-MG-yNR">
@@ -75,16 +75,16 @@
                             <constraint firstItem="es0-t8-cRp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="46S-at-MFY"/>
                             <constraint firstItem="fLc-MG-yNR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Bt1-iT-dky"/>
                             <constraint firstItem="koo-HV-jB6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="OWi-WK-3SZ"/>
-                            <constraint firstItem="2tD-k3-s2k" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="RFw-x7-tL7"/>
+                            <constraint firstItem="2tD-k3-s2k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RFw-x7-tL7"/>
                             <constraint firstItem="koo-HV-jB6" firstAttribute="top" secondItem="es0-t8-cRp" secondAttribute="bottom" constant="16" id="TPe-S0-xI9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ItK-ta-Fxq" secondAttribute="trailing" constant="16" id="TVX-SL-Kcf"/>
-                            <constraint firstItem="2tD-k3-s2k" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="c2o-yG-ygW"/>
-                            <constraint firstItem="2tD-k3-s2k" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cMN-v0-Ukx"/>
+                            <constraint firstItem="2tD-k3-s2k" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="c2o-yG-ygW"/>
+                            <constraint firstItem="2tD-k3-s2k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="cMN-v0-Ukx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="koo-HV-jB6" secondAttribute="trailing" constant="16" id="ldy-n6-RQ4"/>
                             <constraint firstItem="fLc-MG-yNR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lzg-qt-paU"/>
                             <constraint firstItem="fLc-MG-yNR" firstAttribute="top" secondItem="ItK-ta-Fxq" secondAttribute="bottom" constant="16" id="qve-iM-O3c"/>
                             <constraint firstItem="es0-t8-cRp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="rM0-AE-bIj"/>
-                            <constraint firstItem="2tD-k3-s2k" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="uPU-nd-Q8u"/>
+                            <constraint firstItem="2tD-k3-s2k" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="uPU-nd-Q8u"/>
                             <constraint firstItem="fLc-MG-yNR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uW8-Xl-oUJ"/>
                             <constraint firstItem="ItK-ta-Fxq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="xem-BI-hOd"/>
                             <constraint firstItem="es0-t8-cRp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="zHF-5v-qSw"/>
