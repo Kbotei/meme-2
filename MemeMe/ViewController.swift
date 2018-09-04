@@ -56,8 +56,10 @@ class ViewController: UIViewController {
         memedImage = generateMemedImage()
         
         let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        shareSheet.completionWithItemsHandler = { (avtivityType, completed, returnedItems, activityError) in
-            self.save()
+        shareSheet.completionWithItemsHandler = { (_, completed, _, _) in
+            if completed {
+                self.save()
+            }
         }
         
         // Prevent ipad crash - see chosen answer notes section
