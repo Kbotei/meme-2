@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		CB12DD41212CBAFE0033EF26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12DD40212CBAFE0033EF26 /* AppDelegate.swift */; };
-		CB12DD43212CBAFE0033EF26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12DD42212CBAFE0033EF26 /* ViewController.swift */; };
+		CB12DD43212CBAFE0033EF26 /* MemeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12DD42212CBAFE0033EF26 /* MemeViewController.swift */; };
 		CB12DD46212CBAFE0033EF26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB12DD44212CBAFE0033EF26 /* Main.storyboard */; };
 		CB12DD48212CBAFF0033EF26 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB12DD47212CBAFF0033EF26 /* Assets.xcassets */; };
 		CB12DD4B212CBAFF0033EF26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB12DD49212CBAFF0033EF26 /* LaunchScreen.storyboard */; };
 		CB12DD532131E4B60033EF26 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12DD522131E4B60033EF26 /* Meme.swift */; };
+		CB1BD6AC21408FED006CC4FD /* UITextField+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CB12DD3D212CBAFE0033EF26 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB12DD40212CBAFE0033EF26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CB12DD42212CBAFE0033EF26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB12DD42212CBAFE0033EF26 /* MemeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeViewController.swift; sourceTree = "<group>"; };
 		CB12DD45212CBAFE0033EF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB12DD47212CBAFF0033EF26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB12DD4A212CBAFF0033EF26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB12DD4C212CBAFF0033EF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB12DD522131E4B60033EF26 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
+		CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Setup.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,12 +59,13 @@
 			isa = PBXGroup;
 			children = (
 				CB12DD40212CBAFE0033EF26 /* AppDelegate.swift */,
-				CB12DD42212CBAFE0033EF26 /* ViewController.swift */,
+				CB12DD42212CBAFE0033EF26 /* MemeViewController.swift */,
 				CB12DD44212CBAFE0033EF26 /* Main.storyboard */,
 				CB12DD47212CBAFF0033EF26 /* Assets.xcassets */,
 				CB12DD49212CBAFF0033EF26 /* LaunchScreen.storyboard */,
 				CB12DD4C212CBAFF0033EF26 /* Info.plist */,
 				CB12DD522131E4B60033EF26 /* Meme.swift */,
+				CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -139,7 +142,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB12DD532131E4B60033EF26 /* Meme.swift in Sources */,
-				CB12DD43212CBAFE0033EF26 /* ViewController.swift in Sources */,
+				CB1BD6AC21408FED006CC4FD /* UITextField+Setup.swift in Sources */,
+				CB12DD43212CBAFE0033EF26 /* MemeViewController.swift in Sources */,
 				CB12DD41212CBAFE0033EF26 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

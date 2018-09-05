@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class MemeViewController: UIViewController {
 
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -36,15 +36,9 @@ class ViewController: UIViewController {
             NSAttributedStringKey.strokeWidth.rawValue: -4.0
         ]
         
-        topTextField.defaultTextAttributes = memeTextAttributes
-        topTextField.text = "TOP"
-        topTextField.textAlignment = .center
-        topTextField.delegate = self
-        
-        bottomTextField.defaultTextAttributes = memeTextAttributes
-        bottomTextField.text = "BOTTOM"
-        bottomTextField.textAlignment = .center
-        bottomTextField.delegate = self
+        //Moved text field setup into an extension method
+        topTextField.setupTextField(text: "TOP", delegate: self, attributes: memeTextAttributes)
+        bottomTextField.setupTextField(text: "BOTTOM", delegate: self, attributes: memeTextAttributes)
         
         shareButton.isEnabled = false
     }
@@ -129,15 +123,10 @@ class ViewController: UIViewController {
     
     func save() {
         let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
-        
-        // Save meme to photo library
-        // https://stackoverflow.com/questions/40854886/swift-take-a-photo-and-save-to-photo-library
-        
-        UIImageWriteToSavedPhotosAlbum(meme.memedImage, nil, nil, nil)
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension MemeViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             imageView.image = image
@@ -167,7 +156,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension MemeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
     }
