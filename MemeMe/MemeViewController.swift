@@ -77,16 +77,13 @@ class MemeViewController: UIViewController {
         present(shareSheet, animated: true, completion: nil)
     }
     
+    
+    @IBAction func selectCamera(_ sender: Any) {
+        presentImagePicker(source: .camera)
+    }
+    
     @IBAction func selectImage(_ sender: Any) {
-        guard let button = sender as? UIBarButtonItem else {
-            print("Unknown button")
-            return
-        }
-        
-        let picker = UIImagePickerController()
-        picker.sourceType = button.tag == 2 ? .camera : .photoLibrary
-        picker.delegate = self
-        present(picker, animated: true, completion: nil)
+        presentImagePicker(source: .photoLibrary)
     }
     
     @IBAction func cancel(_ sender: Any) {
@@ -121,8 +118,19 @@ class MemeViewController: UIViewController {
         return keyboardSize.cgRectValue.height
     }
     
+    func presentImagePicker(source: UIImagePickerControllerSourceType) {
+        let picker = UIImagePickerController()
+        picker.sourceType = source
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+    }
+    
     func save() {
         let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        var memes = appDelegate.memes
+        memes.append(meme)
     }
 }
 
