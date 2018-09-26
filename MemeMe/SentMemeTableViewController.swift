@@ -9,9 +9,9 @@
 import UIKit
 
 class SentMemeTableViewController: UIViewController {
-    
     var memes: [Meme]! {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
         return appDelegate.memes
     }
 
@@ -20,10 +20,21 @@ class SentMemeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = 100
     }
     
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    @IBAction func addMemeButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memeViewController = storyboard.instantiateViewController(withIdentifier: "CreateMeme") as! MemeViewController
+        present(memeViewController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -42,11 +53,19 @@ extension SentMemeTableViewController: UITableViewDelegate {
 
 extension SentMemeTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        print("Count: \(memes.count)")
+        return memes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell")!
+        
+        if memes.count > indexPath.row {
+            let meme = memes[indexPath.row]
+            cell.imageView?.image = meme.memedImage
+            cell.textLabel?.text = "\(meme.topText) \(meme.bottomText)"
+        }
+        
         return cell
     }
 }

@@ -69,6 +69,8 @@ class MemeViewController: UIViewController {
             if completed {
                 self.save()
             }
+            
+            self.dismiss(animated: true, completion: nil)
         }
         
         // Prevent ipad crash - see chosen answer notes section
@@ -91,6 +93,7 @@ class MemeViewController: UIViewController {
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         shareButton.isEnabled = false
+        self.dismiss(animated: true, completion: nil)
     }
     
     func subscribeToKeyboardNotifications() {
@@ -129,8 +132,7 @@ class MemeViewController: UIViewController {
         let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        var memes = appDelegate.memes
-        memes.append(meme)
+        appDelegate.memes.append(meme)
     }
 }
 
