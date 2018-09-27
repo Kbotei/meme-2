@@ -13,7 +13,7 @@ class MemeViewController: UIViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var navbar: UINavigationBar!
+    //@IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
@@ -141,8 +141,9 @@ extension MemeViewController: UIImagePickerControllerDelegate, UINavigationContr
     }
     
     func generateMemedImage() -> UIImage {
+        view.backgroundColor = .black
         toolbar.isHidden = true
-        navbar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -150,7 +151,8 @@ extension MemeViewController: UIImagePickerControllerDelegate, UINavigationContr
         UIGraphicsEndImageContext()
         
         toolbar.isHidden = false
-        navbar.isHidden = false
+        navigationController?.navigationBar.isHidden = false
+        view.backgroundColor = .white
         
         return memedImage
     }

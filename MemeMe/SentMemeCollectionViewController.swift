@@ -30,7 +30,10 @@ class SentMemeCollectionViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
     
-
+    @IBAction func addMeme(_ sender: Any) {
+        presentMemeCreator()
+    }
+    
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

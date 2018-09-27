@@ -13,11 +13,17 @@ extension UINavigationController {
     // Use light text to work with dark mode
     // https://www.hackingwithswift.com/example-code/uikit/how-to-use-light-text-color-in-the-status-bar
     override open var preferredStatusBarStyle: UIStatusBarStyle {
-        return visibleViewController?.preferredStatusBarStyle ?? .lightContent
+        return .lightContent
     }
 }
 
 extension UIViewController {
+    func presentMemeCreator() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let memeViewController = storyboard.instantiateViewController(withIdentifier: "MemeViewNav")
+        present(memeViewController, animated: true, completion: nil)
+    }
+    
     func presentShareSheet(for memedImage: UIImage, completionHandler: @escaping (UIActivity.ActivityType?, Bool, [Any]?, Error?) -> Void) {
         let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         shareSheet.completionWithItemsHandler = completionHandler
