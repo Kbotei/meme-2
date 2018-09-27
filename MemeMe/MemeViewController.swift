@@ -53,7 +53,7 @@ class MemeViewController: UIViewController {
         super.viewWillDisappear(animated)
         unsubscribeToKeyboardNotifications()
     }
-
+    
     @IBAction func shareMeme(_ sender: Any) {
         guard imageView.image != nil else {
             let alert = UIAlertController(title: "Select an Image", message: "Please select an image before sharing.", preferredStyle: .alert)
@@ -64,8 +64,7 @@ class MemeViewController: UIViewController {
         
         memedImage = generateMemedImage()
         
-        let shareSheet = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
-        shareSheet.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
+        let completionHandler: (UIActivity.ActivityType?, Bool, [Any]?, Error?) -> Void = { (activityType, completed, returnedItems, activityError) in
             if completed {
                 self.save()
             }
@@ -73,10 +72,7 @@ class MemeViewController: UIViewController {
             self.dismiss(animated: true, completion: nil)
         }
         
-        // Prevent ipad crash - see chosen answer notes section
-        // https://stackoverflow.com/questions/35931946/basic-example-for-sharing-text-or-image-with-uiactivityviewcontroller-in-swift
-        shareSheet.popoverPresentationController?.sourceView = self.view
-        present(shareSheet, animated: true, completion: nil)
+        presentShareSheet(for: memedImage, completionHandler: completionHandler)
     }
     
     

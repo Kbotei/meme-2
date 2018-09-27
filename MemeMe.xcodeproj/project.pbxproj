@@ -14,6 +14,7 @@
 		CB12DD4B212CBAFF0033EF26 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB12DD49212CBAFF0033EF26 /* LaunchScreen.storyboard */; };
 		CB12DD532131E4B60033EF26 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB12DD522131E4B60033EF26 /* Meme.swift */; };
 		CB1BD6AC21408FED006CC4FD /* UITextField+Setup.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */; };
+		CBCC7A62215C680000E09EDF /* UIViewController+ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBCC7A61215C680000E09EDF /* UIViewController+ShareSheet.swift */; };
 		CBD74848215B2C14001E53D1 /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD74847215B2C14001E53D1 /* MemeDetailViewController.swift */; };
 		CBF4524D21570D1400EB61FE /* SentMemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF4524C21570D1400EB61FE /* SentMemeTableViewController.swift */; };
 		CBF4524F21570D3E00EB61FE /* SentMemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF4524E21570D3E00EB61FE /* SentMemeCollectionViewController.swift */; };
@@ -29,6 +30,7 @@
 		CB12DD4C212CBAFF0033EF26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CB12DD522131E4B60033EF26 /* Meme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Setup.swift"; sourceTree = "<group>"; };
+		CBCC7A61215C680000E09EDF /* UIViewController+ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+ShareSheet.swift"; sourceTree = "<group>"; };
 		CBD74847215B2C14001E53D1 /* MemeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		CBF4524C21570D1400EB61FE /* SentMemeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeTableViewController.swift; sourceTree = "<group>"; };
 		CBF4524E21570D3E00EB61FE /* SentMemeCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemeCollectionViewController.swift; sourceTree = "<group>"; };
@@ -65,16 +67,17 @@
 			isa = PBXGroup;
 			children = (
 				CB12DD40212CBAFE0033EF26 /* AppDelegate.swift */,
-				CB12DD42212CBAFE0033EF26 /* MemeViewController.swift */,
-				CB12DD44212CBAFE0033EF26 /* Main.storyboard */,
 				CB12DD47212CBAFF0033EF26 /* Assets.xcassets */,
-				CB12DD49212CBAFF0033EF26 /* LaunchScreen.storyboard */,
 				CB12DD4C212CBAFF0033EF26 /* Info.plist */,
+				CB12DD49212CBAFF0033EF26 /* LaunchScreen.storyboard */,
+				CB12DD44212CBAFE0033EF26 /* Main.storyboard */,
 				CB12DD522131E4B60033EF26 /* Meme.swift */,
-				CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */,
-				CBF4524C21570D1400EB61FE /* SentMemeTableViewController.swift */,
-				CBF4524E21570D3E00EB61FE /* SentMemeCollectionViewController.swift */,
 				CBD74847215B2C14001E53D1 /* MemeDetailViewController.swift */,
+				CB12DD42212CBAFE0033EF26 /* MemeViewController.swift */,
+				CBF4524E21570D3E00EB61FE /* SentMemeCollectionViewController.swift */,
+				CBF4524C21570D1400EB61FE /* SentMemeTableViewController.swift */,
+				CB1BD6AB21408FED006CC4FD /* UITextField+Setup.swift */,
+				CBCC7A61215C680000E09EDF /* UIViewController+ShareSheet.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -150,6 +153,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBCC7A62215C680000E09EDF /* UIViewController+ShareSheet.swift in Sources */,
 				CB12DD532131E4B60033EF26 /* Meme.swift in Sources */,
 				CB1BD6AC21408FED006CC4FD /* UITextField+Setup.swift in Sources */,
 				CB12DD43212CBAFE0033EF26 /* MemeViewController.swift in Sources */,

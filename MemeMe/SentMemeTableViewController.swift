@@ -20,8 +20,7 @@ class SentMemeTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = 100
+        tableView.rowHeight = 120
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,14 +62,19 @@ extension SentMemeTableViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "memeCell") as! MemeTableCell
         
         if memes.count > indexPath.row {
             let meme = memes[indexPath.row]
-            cell.imageView?.image = meme.memedImage
-            cell.textLabel?.text = "\(meme.topText) \(meme.bottomText)"
+            cell.memeImage.image = meme.memedImage
+            cell.memeText?.text = "\(meme.topText) \(meme.bottomText)"
         }
         
         return cell
     }
+}
+
+class MemeTableCell: UITableViewCell {
+    @IBOutlet weak var memeImage: UIImageView!
+    @IBOutlet weak var memeText: UILabel!
 }
