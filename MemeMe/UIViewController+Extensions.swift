@@ -1,5 +1,5 @@
 //
-//  UIViewController+ShareSheet.swift
+//  UIViewController+Extensions.swift
 //  MemeMe
 //
 //  Created by Kbotei on 9/26/18.
@@ -8,6 +8,14 @@
 
 import Foundation
 import UIKit
+
+extension UINavigationController {
+    // Use light text to work with dark mode
+    // https://www.hackingwithswift.com/example-code/uikit/how-to-use-light-text-color-in-the-status-bar
+    override open var preferredStatusBarStyle: UIStatusBarStyle {
+        return visibleViewController?.preferredStatusBarStyle ?? .lightContent
+    }
+}
 
 extension UIViewController {
     func presentShareSheet(for memedImage: UIImage, completionHandler: @escaping (UIActivity.ActivityType?, Bool, [Any]?, Error?) -> Void) {

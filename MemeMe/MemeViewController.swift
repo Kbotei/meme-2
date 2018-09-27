@@ -20,12 +20,6 @@ class MemeViewController: UIViewController {
     
     var memedImage: UIImage!
     
-    // Use light text to work with dark mode
-    // https://www.hackingwithswift.com/example-code/uikit/how-to-use-light-text-color-in-the-status-bar
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
