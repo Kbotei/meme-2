@@ -43,16 +43,14 @@ class SentMemeCollectionViewController: UIViewController {
             controller.meme = meme
         }
     }
-
-
 }
+
+// MARK: - Delegates
 
 extension SentMemeCollectionViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if memes.count > indexPath.row {
-            let meme = memes[indexPath.row]
-            
-            performSegue(withIdentifier: "pushCollectionToDetail", sender: meme)
+            performSegue(withIdentifier: "pushCollectionToDetail", sender: memes[indexPath.row])
         }
     }
 }
@@ -72,8 +70,6 @@ extension SentMemeCollectionViewController: UICollectionViewDataSource {
         
         return cell
     }
-    
-    
 }
 
 class MemeCollectionCell: UICollectionViewCell {

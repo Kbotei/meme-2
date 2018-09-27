@@ -41,15 +41,12 @@ class SentMemeTableViewController: UIViewController {
             controller.meme = meme
         }
     }
-
 }
 
 extension SentMemeTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if memes.count > indexPath.row {
-            let meme = memes[indexPath.row]
-            
-            performSegue(withIdentifier: "pushTableToDetail", sender: meme)
+            performSegue(withIdentifier: "pushTableToDetail", sender: memes[indexPath.row])
         }
     }
 }
