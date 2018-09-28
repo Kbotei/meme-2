@@ -171,7 +171,10 @@ extension MemeViewController: UIImagePickerControllerDelegate, UINavigationContr
 
 extension MemeViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.text = ""
+        // Per reviewer suggestion, only clear when placeholder text
+        if textField.text == "TOP" || textField.text == "BOTTOM" {
+            textField.text = ""
+        }
     }
     
     // Use technique found at Stack Overflow to dismiss the keyboard.
