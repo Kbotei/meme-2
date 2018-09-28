@@ -13,10 +13,11 @@ class MemeViewController: UIViewController {
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var imageView: UIImageView!
-    //@IBOutlet weak var navbar: UINavigationBar!
     @IBOutlet weak var toolbar: UIToolbar!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
+    var meme: Meme?
     
     var memedImage: UIImage!
     
@@ -35,6 +36,13 @@ class MemeViewController: UIViewController {
         bottomTextField.setupTextField(text: "BOTTOM", delegate: self, attributes: memeTextAttributes)
         
         shareButton.isEnabled = false
+        
+        if let meme = self.meme {
+            imageView.image = meme.originalImage
+            topTextField.text = meme.topText
+            bottomTextField.text = meme.bottomText
+            shareButton.isEnabled = true
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -121,8 +129,11 @@ class MemeViewController: UIViewController {
     func save() {
         let meme = Meme(topText: topTextField.text ?? "", bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.memes.append(meme)
+        // Only save meme if it was changed.
+        if meme != self.meme {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.memes.append(meme)
+        }
     }
 }
 

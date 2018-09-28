@@ -18,10 +18,16 @@ extension UINavigationController {
 }
 
 extension UIViewController {
-    func presentMemeCreator() {
+    func presentMemeCreator(with meme: Meme? = nil) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let memeViewController = storyboard.instantiateViewController(withIdentifier: "MemeViewNav")
-        present(memeViewController, animated: true, completion: nil)
+        let navController = storyboard.instantiateViewController(withIdentifier: "MemeViewNav") as! UINavigationController
+        
+        if let memeViewController = navController.viewControllers.first as? MemeViewController,
+            let meme = meme {
+            memeViewController.meme = meme
+        }
+        
+        present(navController, animated: true, completion: nil)
     }
     
     func presentShareSheet(for memedImage: UIImage, completionHandler: @escaping (UIActivity.ActivityType?, Bool, [Any]?, Error?) -> Void) {

@@ -191,9 +191,9 @@
                         <viewLayoutGuide key="safeArea" id="AlU-ID-dYl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Meme Detail" id="RS2-33-7Lf">
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="RWg-Oq-JR1">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="RWg-Oq-JR1">
                             <connections>
-                                <action selector="shareMeme:" destination="O0J-0l-GcG" id="W5F-uf-ggL"/>
+                                <action selector="editMeme:" destination="O0J-0l-GcG" id="W5F-uf-ggL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

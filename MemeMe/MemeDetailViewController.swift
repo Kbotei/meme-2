@@ -18,13 +18,13 @@ class MemeDetailViewController: UIViewController {
         super.viewDidLoad()
 
         imageView.image = meme.memedImage
+        
+        // Hide tab bar using method found at https://stackoverflow.com/questions/28777943/hide-tab-bar-in-ios-swift-app
+        tabBarController?.tabBar.isHidden = true
     }
     
-    @IBAction func shareMeme(_ sender: Any) {
-        let completionHandler: (UIActivity.ActivityType?, Bool, [Any]?, Error?) -> Void = { (activityType, completed, returnedItems, activityError) in
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        presentShareSheet(for: meme.memedImage, completionHandler: completionHandler)
+    // Changed share button to allow for edit functionality.
+    @IBAction func editMeme(_ sender: Any) {
+        presentMemeCreator(with: meme)
     }
 }
