@@ -23,6 +23,11 @@ class MemeDetailViewController: UIViewController {
         tabBarController?.tabBar.isHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     // Changed share button to allow for edit functionality.
     @IBAction func editMeme(_ sender: Any) {
         presentMemeCreator(with: meme)
